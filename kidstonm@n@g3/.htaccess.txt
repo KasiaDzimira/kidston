@@ -1,0 +1,6 @@
+#RewriteBase /kidston/kidstonm@n@g3/
+RewriteBase /beta/kidstonm@n@g3/
+DirectoryIndex lr.php
+#Options +FollowSymLinks
+RewriteEngine on
+RewriteRule lr/(.*) admin_process/lrvalidate.php

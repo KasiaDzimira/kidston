@@ -1,0 +1,22 @@
+RewriteBase /
+RewriteEngine on
+RewriteRule ^index.htm$ ./index.php
+RewriteRule ^action/{save_job}/(.*)$ ./process/job_post_save.php
+RewriteRule ^action/{save_joblog}/(.*)$ ./process/job_postlog_save.php
+
+#RewriteRule ^job/([0-9]+)/([A-Za-z0-9_-]+)/([0-9]+)/success/$ job_details.php?jid=$1&sid=$3
+#RewriteRule ^job/([0-9]+)/([A-Za-z0-9_-]+)$ job_details.php?jid=$1
+
+RewriteRule ^job/([0-9]+)/(.*)/([0-9]+)/success/$ job_details.php?jid=$1&sid=$3
+RewriteRule ^job/([0-9]+)/(.*)$ job_details.php?jid=$1
+
+RewriteRule ^intern/([0-9]+)/(.*)/([0-9]+)/success/$ intern_details.php?jid=$1&sid=$3
+RewriteRule ^intern/([0-9]+)/(.*)$ intern_details.php?jid=$1
+
+RewriteRule ^([A-Za-z0-9_-]+)/([0-9]+)-([A-Za-z0-9_-]+)$ cms_redirect.php?cms_id=$2
+RewriteRule ^([A-Za-z0-9_-]+)/([0-9]+)-([A-Za-z0-9_-]+)/$ cms_redirect.php?cms_id=$2
+
+RewriteRule ^([A-Za-z0-9_-]+)$ company_details.php
+RewriteRule ^([A-Za-z0-9_-]+)/$ company_details.php
+
+RewriteRule ^talent/([0-9]+)/([A-Za-z0-9_-]+)$ talent_details.php?tid=$1

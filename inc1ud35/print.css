@@ -1,0 +1,30 @@
+body {
+  color :#000000;
+  background :#ffffff;
+  font-family :Arial;
+  font-size :12px;
+  text-align:justify;
+}
+.bodytext
+{
+ font-family: Arial;
+ font-size :12px;
+ color:#000000;
+ line-height:18px;
+ text-align:justify;
+}
+a {
+  text-decoration : underline;
+  color : #0000ff;
+}
+#erase
+{
+  display:none;
+}
+#conn{width:930px}
+.print-logo{float:left; padding:10px}
+
+.del
+{
+  display:none;
+}
