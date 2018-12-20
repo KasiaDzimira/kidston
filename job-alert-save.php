@@ -1,202 +1,193 @@
 <?PHP
 
-	
-
 include("support/firstline.php");
-
-
-
 include("process/progressing-alert.php");
 
-
-
 if(isset($_REQUEST['Submit']) && $_REQUEST['Submit']== "Sign Up")
+{
+    $fac = $_REQUEST["fac"];
 
-{ 
+    if($fac == "")
 
-	    $fac = $_REQUEST["fac"];
+    {//#1
 
-		if($fac == "")
+        $name = $_REQUEST["name"];
 
-		{//#1
+        $email = $_REQUEST["email"];
 
-	    $name = $_REQUEST["name"];
+        $job_area = $_REQUEST["job_area"];
 
-		$email = $_REQUEST["email"];
+        $job_location = $_REQUEST["job_location"];
 
-		$job_area = $_REQUEST["job_area"];
+        $job_type = $_REQUEST["job_type"];
 
-		$job_location = $_REQUEST["job_location"];
+        $curdate=date("Y-m-d");
 
-		$job_type = $_REQUEST["job_type"];
 
-		$curdate=date("Y-m-d");
 
-		
+        $total = $db->fetchSingleRow("select * from job_master where email='".$email."'");
 
-		$total = $db->fetchSingleRow("select * from job_master where email='".$email."'");
 
-		
 
-		if($total > 0){
+        if($total > 0){
 
-		
 
-		$resmsg =202;
 
-		}else{
+            $resmsg =202;
 
-		
+        }else{
 
-				$tbl = "job_master";
 
-				$career_in["name"] = $name;
 
-				$career_in["email"] = $email;
+            $tbl = "job_master";
 
-				$career_in["job_area"] = $job_area;
+            $career_in["name"] = $name;
 
-				$career_in["job_location"] = $job_location;
+            $career_in["email"] = $email;
 
-				$career_in["job_type"] = $job_type;
+            $career_in["job_area"] = $job_area;
 
-				$career_in["apply_on"] = $curdate;
+            $career_in["job_location"] = $job_location;
 
-				
+            $career_in["job_type"] = $job_type;
 
-				$staticid = $db->db_insert($tbl,$career_in);
+            $career_in["apply_on"] = $curdate;
 
-				if($staticid > 0)
 
-				{		
 
-				
+            $staticid = $db->db_insert($tbl,$career_in);
 
-				
+            if($staticid > 0)
 
-					$job_email = $db->fetchSingleRow("select ID,name,email,job_area,job_location,job_type from job_master where ID= ".$staticid);
+            {
 
-					$user_id =  $db->encode64("JMA:".$job_email['ID']);
 
-					$user_email = $job_email['email'];
 
-					$user_name = $job_email['name'];
 
-					$user_job_area = $job_email['job_area'];
 
-					$user_job_location = $job_email['job_location'];
+                $job_email = $db->fetchSingleRow("select ID,name,email,job_area,job_location,job_type from job_master where ID= ".$staticid);
 
-					$user_job_type = $job_email['job_type'];
+                $user_id =  $db->encode64("JMA:".$job_email['ID']);
 
-					
+                $user_email = $job_email['email'];
 
-					
+                $user_name = $job_email['name'];
 
-						$email_to = "recruiting@kidston.ch";
+                $user_job_area = $job_email['job_area'];
 
-						//$email_to = "nalini@niyati.com";
+                $user_job_location = $job_email['job_location'];
 
-						$email_subject  = "Applying for : ".$job_area;
+                $user_job_type = $job_email['job_type'];
 
-						$email_txt ="";
 
-						?>
 
-						<div style="display:none;">
 
-						<?PHP 
 
-						ob_start();	
+                $email_to = "recruiting@kidston.ch";
 
-						include("mailer/admin_job_alert_mailer.php");
+                //$email_to = "nalini@niyati.com";
 
-						$email_txt = ob_get_contents();
+                $email_subject  = "Applying for : ".$job_area;
 
-						ob_end_flush();
+                $email_txt ="";
 
-						?>
+                ?>
 
-						</div>&nbsp;
+                <div style="display:none;">
 
-						<?PHP
+                    <?PHP
 
-						
+                    ob_start();
 
-					
+                    include("mailer/admin_job_alert_mailer.php");
 
-					$headers = "From: Kidston <noreply@kidston.ch>\r\n Reply-to: $email \r\n";
+                    $email_txt = ob_get_contents();
 
-					$headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
+                    ob_end_flush();
 
-					$ok = mail($email_to,$email_subject,$email_txt,$headers);
+                    ?>
 
-					/* Mail to Registered User*/
+                </div>&nbsp;
 
-					
+                <?PHP
 
-				$email_u_to = $user_email;
 
-				$email_u_subject  = "Activation Required for Kidston Job alert";
 
-				$uemail_txt = "";
 
-						?>
 
-						<div style="display:none;">
+                $headers = "From: Kidston <noreply@kidston.ch>\r\n Reply-to: $email \r\n";
 
-						<?PHP 
+                $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
 
-						ob_start();	
+                $ok = mail($email_to,$email_subject,$email_txt,$headers);
 
-						include("mailer/user_job_alert_mailer.php");
+                /* Mail to Registered User*/
 
-						$uemail_txt = ob_get_contents();
 
-						ob_end_flush();
 
-						?>
+                $email_u_to = $user_email;
 
-						</div>
+                $email_u_subject  = "Activation Required for Kidston Job alert";
 
-						<?PHP
+                $uemail_txt = "";
 
+                ?>
 
+                <div style="display:none;">
 
-					$yheaders = "From: Kidston | Support Team<noreply@kidston.ch> \r\n";
+                    <?PHP
 
-					$yheaders .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
+                    ob_start();
 
-					$yok = mail($email_u_to,$email_u_subject,$uemail_txt,$yheaders);
+                    include("mailer/user_job_alert_mailer.php");
 
+                    $uemail_txt = ob_get_contents();
 
+                    ob_end_flush();
 
-				
+                    ?>
 
-				/* Mail to Registered User*/
+                </div>
 
-				}
+                <?PHP
 
-				$resmsg = 200;
 
 
+                $yheaders = "From: Kidston | Support Team<noreply@kidston.ch> \r\n";
 
-		}//#1	
+                $yheaders .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
 
-	}
+                $yok = mail($email_u_to,$email_u_subject,$uemail_txt,$yheaders);
 
-	?>
 
-	<script language="javascript">
 
-	window.location = "<?php echo "job-alerts.php?status=".$resmsg;?>";
 
-	</script>
 
-	<?
+                /* Mail to Registered User*/
 
-		
+            }
 
-}		
+            $resmsg = 200;
+
+
+
+        }//#1
+
+    }
+
+    ?>
+
+    <script language="javascript">
+
+      window.location = "<?php echo "job-alerts.php?status=".$resmsg;?>";
+
+    </script>
+
+    <?PHP
+
+
+
+}
 
 ?>
 

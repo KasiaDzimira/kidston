@@ -16,7 +16,7 @@
 if($_SESSION["slanguage"] == "1" || $_SESSION["slanguage"] == "")
 {
 ?>
-<title>KIDSTON Personalvermittlung: offene IT- und kaufmännische Stellen melden</title>
+<title>KIDSTON Personalvermittlung: offene IT- und kaufmï¿½nnische Stellen melden</title>
 <?PHP
 }
 if($_SESSION["slanguage"] == "2")
@@ -28,7 +28,7 @@ if($_SESSION["slanguage"] == "2")
 if($_SESSION["slanguage"] == "1" || $_SESSION["slanguage"] == "")
 {
 ?>
-<meta name="description" content="Sie suchen nach passenden Bewerbern für eine offene Stelle im IT- oder kaufmännischen Bereich? Melden Sie Ihre Vakanz bei KIDSTON.">
+<meta name="description" content="Sie suchen nach passenden Bewerbern fï¿½r eine offene Stelle im IT- oder kaufmï¿½nnischen Bereich? Melden Sie Ihre Vakanz bei KIDSTON.">
 <?PHP
 }
 if($_SESSION["slanguage"] == "2")
@@ -40,7 +40,7 @@ if($_SESSION["slanguage"] == "2")
 if($_SESSION["slanguage"] == "1" || $_SESSION["slanguage"] == "")
 {
 ?>
-<meta name="keywords" content="offene stellen, it stellen, kaufmännische stellen, personalvermittlung">
+<meta name="keywords" content="offene stellen, it stellen, kaufmï¿½nnische stellen, personalvermittlung">
 <?PHP
 }
 if($_SESSION["slanguage"] == "2")
@@ -50,7 +50,7 @@ if($_SESSION["slanguage"] == "2")
 <?PHP
 }
 ?>
-<meta name="description" content="Sie suchen nach passenden Bewerbern für eine offene Stelle im Informatik- oder kaufmännischen Bereich? Melden Sie Ihre Vakanz bei KIDSTON.">
+<meta name="description" content="Sie suchen nach passenden Bewerbern fï¿½r eine offene Stelle im Informatik- oder kaufmï¿½nnischen Bereich? Melden Sie Ihre Vakanz bei KIDSTON.">
 <meta name="keywords" content="offene stellen, stellen besetzen, stellen melden, personalvermittlung">
 <link rel="shortcut icon" href="knpic/favicon.ico" type="image/x-icon" />
 <link href="kninc/kn-style.css" rel="stylesheet" type="text/css" />
@@ -218,7 +218,7 @@ else
 			if($_SESSION["slanguage"] == "2")
 			{
 		?>	
-          <span class="band-orange">Your Business – Our People</span><br />You search – we find</div>
+          <span class="band-orange">Your Business ï¿½ Our People</span><br />You search ï¿½ we find</div>
 		  <?PHP
 		  	}
 			?>
@@ -341,7 +341,7 @@ else
 								<?PHP
 								if($_SESSION["slanguage"] == "1" || $_SESSION["slanguage"] == "")
 								{
-									echo "Temporär";
+									echo "Temporï¿½r";
 								}
 								if($_SESSION["slanguage"] == "2")
 								{
@@ -476,7 +476,7 @@ else
 			   <?PHP
 			  if($_SESSION["slanguage"] == "1" || $_SESSION["slanguage"] == "" ) 
 			  {
-			  	echo "wählen";
+			  	echo "wï¿½hlen";
 			  }
 			  if($_SESSION["slanguage"] == "2")
 			  {
@@ -586,7 +586,7 @@ else
 								   <?PHP
 						 			 if($_SESSION["slanguage"] == "1" || $_SESSION["slanguage"] == "" )
 						 			 {
-						  				echo "Sprache wählen";
+						  				echo "Sprache wï¿½hlen";
 									  }
 									  if($_SESSION["slanguage"] == "2")
 									  {
@@ -658,7 +658,7 @@ else
 						   <?PHP
 						  if($_SESSION["slanguage"] == "1" || $_SESSION["slanguage"] == "")
 						  	{
-						  		echo "hinzufügen";
+						  		echo "hinzufï¿½gen";
 							}
 							if($_SESSION["slanguage"] == "2")
 							{
@@ -694,7 +694,7 @@ else
 						  <?PHP
 						  if($_SESSION["slanguage"] == "1" || $_SESSION["slanguage"] == "")
 						  	{
-						  		echo "Fähigkeiten";
+						  		echo "Fï¿½higkeiten";
 							}
 							if($_SESSION["slanguage"] == "2")
 							{
@@ -737,7 +737,7 @@ else
 						 <?PHP
 						  if($_SESSION["slanguage"] == "1" || $_SESSION["slanguage"] == "")
 						  	{
-						  		echo "Zusätzliche Bemerkungen";
+						  		echo "Zusï¿½tzliche Bemerkungen";
 							}
 							if($_SESSION["slanguage"] == "2")
 							{
