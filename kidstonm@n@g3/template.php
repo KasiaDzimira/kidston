@@ -90,7 +90,7 @@
 		$esex = "";
 		$gsex = "";
 		$erds = "<br>Regards<br>Kidston Team";
-		$grds = "<br>Herzliche Grüsse<br>Kidston Team";
+		$grds = "<br>Herzliche Grï¿½sse<br>Kidston Team";
 		if($can_val["sex"] == "M")
 		{
 			$esex = "Mr. ";
